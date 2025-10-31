@@ -1,0 +1,96 @@
+[gd_scene load_steps=10 format=3 uid="uid://e5ycpsjrg0jl"]
+
+[ext_resource type="Shader" uid="uid://cs15e2hgd2lan" path="res://assets/sliding_background.gdshader" id="1_ee4bf"]
+[ext_resource type="Theme" uid="uid://wkct8cqvt2o2" path="res://lessons/new_theme.tres" id="2_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://bnly1gkbxw6b5" path="res://assets/bubble_pattern.png" id="2_kbped"]
+[ext_resource type="Texture2D" uid="uid://copkt78vgp37i" path="res://assets/sophia.png" id="3_fj5cn"]
+[ext_resource type="Texture2D" uid="uid://d000xjtr4iqtk" path="res://assets/emotion_regular.png" id="4_iy58a"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6a6wx"]
+shader = ExtResource("1_ee4bf")
+shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/pattern_color = Color(0, 0, 0, 1)
+shader_parameter/pattern_size = 256.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sky72"]
+shader = ExtResource("1_ee4bf")
+shader_parameter/pattern_sampler = ExtResource("2_kbped")
+shader_parameter/bg_color = Color(0, 0, 0, 1)
+shader_parameter/pattern_color = Color(0.60784316, 0.08627451, 0.8784314, 1)
+shader_parameter/pattern_size = 256.0
+
+[sub_resource type="Theme" id="Theme_iy58a"]
+
+[sub_resource type="Theme" id="Theme_6a6wx"]
+
+[node name="dialogue" type="Control"]
+material = SubResource("ShaderMaterial_6a6wx")
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_fj5cn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sky72")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 444.0
+offset_right = 792.0
+offset_bottom = 1064.0
+texture = ExtResource("3_fj5cn")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_iy58a")
+texture = ExtResource("4_iy58a")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.521
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -258.32007
+offset_top = 410.0
+offset_right = -526.0
+offset_bottom = -486.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "2.6 hog cycle"
+fit_content = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = 354.0
+offset_right = -18.0
+offset_bottom = 543.0
+grow_horizontal = 0
+grow_vertical = 2
+theme = SubResource("Theme_6a6wx")
+text = "next"
